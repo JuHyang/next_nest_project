@@ -4,10 +4,8 @@
     "target": "ES2020",
     "module": "commonjs",
     "strict": true,
-    "baseUrl": ".",                      // ✅ 기준 경로는 루트
-    "paths": {
-      "@shared/*": ["shared/*"]          // ✅ 공통 타입 경로 alias
-    },
+    "baseUrl": ".", // ✅ 기준 경로는 루트
+    "paths": {},
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
