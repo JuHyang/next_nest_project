@@ -1,0 +1,39 @@
+// frontend/tsconfig.json
+{
+  "extends": "../../tsconfig.base.json", // ✅ 루트 base config 가져옴
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "noEmit": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".", // frontend 기준
+    "paths": {
+      "@/*": [
+        "selling-page/src/*"
+      ], // ✅ 기존 앱 전용 alias 유지
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "selling-page/.next/types/**/*.ts"
+  ],
+  "exclude": [
+    "selling-page/node_modules"
+  ]
+}

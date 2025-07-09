@@ -1,4 +1,4 @@
-import type { Post } from '@/features/post/types'
+import type { Post } from 'selling-page/src/features/post/types'
 
 export default function PostList({ posts }: { posts: Post[] }) {
   if (!posts || posts.length === 0) {

@@ -1,24 +1,21 @@
 'use client'
 
 import { useState } from 'react'
-import { usePostStore } from '../store/postStore'
+import { useCreatePostMutation } from '../hooks/useCreatePostMutation'
 
 export default function CreatePostForm() {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
-  const createPost = usePostStore((state) => state.createPost)
+  const { mutate, isPending, isError } = useCreatePostMutation()
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!title.trim() || !content.trim()) return
 
-    try {
-      await createPost(title, content)
-      setTitle('')
-      setContent('')
-    } catch (error) {
-      console.error('Error creating post:', error)
-    }
+    mutate({ title, content })
+
+    setTitle('')
+    setContent('')
   }
 
   return (
